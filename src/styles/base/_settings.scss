@@ -1,4 +1,18 @@
 // colors
-$primary: #5c62c5;
-$dark-grey: #363636;
-$light-grey: #d8d8d8;
+$dark-grey: #011627;
+$light-grey: #fdfffc;
+$primary: #2ec4b6;
+$danger: #e71d36;
+$warning: #ff9f1c;
+
+//font size
+$body-font: "Open Sans", sans-serif;
+$h1-font-size: 1.5rem;
+$normal-font-size: 0.938rem;
+$small-font-size: 0.813rem;
+
+//media
+@media screen and (min-width: 768px) {
+  $normal-font-size: 1rem;
+  $small-font-size: 0.875rem;
+}
