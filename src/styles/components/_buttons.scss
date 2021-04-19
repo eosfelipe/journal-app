@@ -1,0 +1,17 @@
+.btn {
+  background-color: transparent;
+  border: none;
+  color: $light-grey;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 7px 10px;
+  transition: color 0.3s ease;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: darken($color: $light-grey, $amount: 10);
+  }
+}

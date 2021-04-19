@@ -121,12 +121,17 @@
     cursor: pointer;
   }
   &__social {
+    @include flex-center;
     margin-top: 2rem;
 
     &-icon {
       font-size: 1.5rem;
       color: $first-color-dark;
       margin: 0 1.5rem;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }

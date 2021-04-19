@@ -50,6 +50,7 @@ const LoginScreen = () => {
               </Link>
             </div>
             <div className="login__social">
+              <span className="login__account">Login with social networks</span>
               <a href="https://google.com" className="login__social-icon">
                 <GoogleIcon style={{ width: "25px", fill: "#363636" }} />
               </a>

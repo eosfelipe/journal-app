@@ -7,8 +7,14 @@ $danger: #e71d36;
 $warning: #ff9f1c;
 
 $first-color: $primary;
-$first-color-dark: darken($primary, 5%);
-$first-color-light: lighten($primary, 5%);
+$first-color-dark: darken(
+  $color: $primary,
+  $amount: 10,
+);
+$first-color-light: lighten(
+  $color: $primary,
+  $amount: 5,
+);
 $first-color-lighten: #f2f2f2;
 
 //font size
