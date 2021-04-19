@@ -1,9 +1,15 @@
 // colors
 $dark-grey: #011627;
 $light-grey: #fdfffc;
+$grey: #363636;
 $primary: #2ec4b6;
 $danger: #e71d36;
 $warning: #ff9f1c;
+
+$first-color: $primary;
+$first-color-dark: darken($primary, 5%);
+$first-color-light: lighten($primary, 5%);
+$first-color-lighten: #f2f2f2;
 
 //font size
 $body-font: "Open Sans", sans-serif;
