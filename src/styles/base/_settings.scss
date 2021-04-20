@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 // colors
 $dark-grey: #011627;
 $light-grey: #fdfffc;
@@ -18,7 +19,7 @@ $first-color-light: lighten(
 $first-color-lighten: #f2f2f2;
 
 //font size
-$body-font: "Open Sans", sans-serif;
+$body-font: "Roboto", sans-serif;
 $h1-font-size: 1.5rem;
 $normal-font-size: 0.938rem;
 $small-font-size: 0.813rem;

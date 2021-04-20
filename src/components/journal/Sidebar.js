@@ -8,7 +8,7 @@ const Sidebar = () => {
       <div className="journal__sidebar-navbar">
         <MoonIcon />
         <span>Felipe</span>
-        <button className="btn">Logout</button>
+        <button className="btn btnSidebar">Logout</button>
       </div>
       <div className="journal__new-entry">
         <CalendarIcon />

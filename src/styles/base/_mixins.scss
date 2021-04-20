@@ -3,3 +3,12 @@
   display: flex;
   justify-content: center;
 }
+@mixin buttonBG($bg) {
+  border: 2px solid $bg;
+  color: $bg;
+  &:hover {
+    background-color: $bg;
+    color: invert($bg);
+    transition: all 0.3s ease-in-out;
+  }
+}

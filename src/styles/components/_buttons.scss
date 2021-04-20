@@ -1,17 +1,21 @@
 .btn {
-  background-color: transparent;
-  border: none;
-  color: $light-grey;
+  outline: none;
   cursor: pointer;
-  font-size: 12px;
-  padding: 7px 10px;
-  transition: color 0.3s ease;
-
-  &:focus {
-    outline: none;
-  }
-
+  background: none;
+  transition: all 0.5s ease;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid $dark-grey;
+  padding: 1rem;
+  margin-left: 1rem;
   &:hover {
-    color: darken($color: $light-grey, $amount: 10);
+    background-color: $dark-grey;
+    color: $light-grey;
   }
+}
+.btnSidebar {
+  @include buttonBG($light-grey);
+}
+.primary {
+  @include buttonBG($light-grey);
 }
