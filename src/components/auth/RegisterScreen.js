@@ -1,10 +1,52 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import validator from "validator";
+import { useDispatch } from "react-redux";
+
 import LoginImg from "../../assets/login.svg";
 import { ReactComponent as GoogleIcon } from "../../assets/google.svg";
 import { UserIcon, MailIcon, LockClosedIcon } from "@heroicons/react/solid";
+import useForm from "../../hooks/useForm";
+import { setError, removeError } from "../../actions/ui";
 
 const RegisterScreen = () => {
+  const dispatch = useDispatch();
+
+  const [formValues, handleInputChange] = useForm({
+    name: "Felipe Escobedo",
+    email: "escobedo.felipe@hotmail.com",
+    password: "123456",
+    password2: "123456",
+  });
+
+  const { name, email, password, password2 } = formValues;
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    if (isFormValid()) {
+      console.log("Formulario correcto");
+    }
+  };
+
+  const isFormValid = () => {
+    if (name.trim().length === 0) {
+      dispatch(setError("Name is required"));
+      return false;
+    } else if (!validator.isEmail(email)) {
+      dispatch(setError("Email is noty valid"));
+      return false;
+    } else if (validator.equals(password, password2)) {
+      dispatch(
+        setError(
+          "Password should be at least 6 characters and match each other"
+        )
+      );
+      return false;
+    }
+    dispatch(removeError());
+    return true;
+  };
+
   return (
     <div className="login">
       <div className="login__content">
@@ -12,7 +54,7 @@ const RegisterScreen = () => {
           <img src={LoginImg} alt="login-img" />
         </div>
         <div className="login__forms">
-          <form className="login__create">
+          <form className="login__create" onSubmit={handleRegister}>
             <h1 className="login__title">Create Account</h1>
             <div className="login__box">
               <i className="login__icon">
@@ -20,26 +62,57 @@ const RegisterScreen = () => {
               </i>
               <input
                 type="text"
-                placeholder="Username"
+                placeholder="Name"
                 className="login__input"
+                name="name"
+                value={name}
+                onChange={handleInputChange}
               />
             </div>
             <div className="login__box">
               <i className="login__icon">
                 <MailIcon />
               </i>
-              <input type="text" placeholder="Email" className="login__input" />
+              <input
+                type="text"
+                placeholder="Email"
+                className="login__input"
+                name="email"
+                value={email}
+                onChange={handleInputChange}
+              />
             </div>
             <div className="login__box">
               <i className="login__icon">
                 <LockClosedIcon />
               </i>
               <input
-                type="password"
+                type="text"
                 placeholder="Password"
                 className="login__input"
+                name="password"
+                value={password}
+                onChange={handleInputChange}
               />
             </div>
+            <div className="login__box">
+              <i className="login__icon">
+                <LockClosedIcon />
+              </i>
+              <input
+                type="text"
+                placeholder="Confirm password"
+                className="login__input"
+                name="password2"
+                value={password2}
+                onChange={handleInputChange}
+              />
+            </div>
+            {false && (
+              <span className="auth__alert-error">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </span>
+            )}
             <button type="submit" className="login__button">
               Sign Up
             </button>
