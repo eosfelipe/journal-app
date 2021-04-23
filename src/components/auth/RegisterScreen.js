@@ -1,16 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import validator from "validator";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import LoginImg from "../../assets/login.svg";
 import { ReactComponent as GoogleIcon } from "../../assets/google.svg";
 import { UserIcon, MailIcon, LockClosedIcon } from "@heroicons/react/solid";
 import useForm from "../../hooks/useForm";
 import { setError, removeError } from "../../actions/ui";
+import { startRegisterWithEmailPassword } from "../../actions/auth";
 
 const RegisterScreen = () => {
   const dispatch = useDispatch();
+  const { msgError } = useSelector((state) => state.ui);
 
   const [formValues, handleInputChange] = useForm({
     name: "Felipe Escobedo",
@@ -24,7 +26,7 @@ const RegisterScreen = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     if (isFormValid()) {
-      console.log("Formulario correcto");
+      dispatch(startRegisterWithEmailPassword(email, password, name));
     }
   };
 
@@ -35,7 +37,7 @@ const RegisterScreen = () => {
     } else if (!validator.isEmail(email)) {
       dispatch(setError("Email is noty valid"));
       return false;
-    } else if (validator.equals(password, password2)) {
+    } else if (!validator.equals(password, password2)) {
       dispatch(
         setError(
           "Password should be at least 6 characters and match each other"
@@ -87,7 +89,7 @@ const RegisterScreen = () => {
                 <LockClosedIcon />
               </i>
               <input
-                type="text"
+                type="password"
                 placeholder="Password"
                 className="login__input"
                 name="password"
@@ -100,7 +102,7 @@ const RegisterScreen = () => {
                 <LockClosedIcon />
               </i>
               <input
-                type="text"
+                type="password"
                 placeholder="Confirm password"
                 className="login__input"
                 name="password2"
@@ -108,11 +110,7 @@ const RegisterScreen = () => {
                 onChange={handleInputChange}
               />
             </div>
-            {false && (
-              <span className="auth__alert-error">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </span>
-            )}
+            {msgError && <span className="auth__alert-error">{msgError}</span>}
             <button type="submit" className="login__button">
               Sign Up
             </button>

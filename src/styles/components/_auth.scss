@@ -105,6 +105,11 @@
     &:hover {
       background-color: $first-color-dark;
     }
+
+    &:disabled {
+      background-color: darken($color: $first-color-dark, $amount: 10);
+      color: #fff;
+    }
   }
   &__account,
   &__signin,
@@ -157,6 +162,16 @@
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
+}
+
+.auth__loading-screen {
+  @include flex-center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: $dark-grey;
 }
 
 /* ===== MEDIA QUERIES =====*/

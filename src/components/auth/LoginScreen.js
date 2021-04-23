@@ -4,7 +4,7 @@ import useForm from "../../hooks/useForm";
 import LoginImg from "../../assets/login.svg";
 import { ReactComponent as GoogleIcon } from "../../assets/google.svg";
 import { UserIcon, LockClosedIcon } from "@heroicons/react/solid";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   login,
   startGoogleLogin,
@@ -13,6 +13,7 @@ import {
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.ui);
 
   const [formValues, handleInputChange] = useForm({
     email: "escobedo.felipe@hotmail.com",
@@ -69,7 +70,7 @@ const LoginScreen = () => {
             <Link to="/forgot" className="login__forgot">
               Forgot password?
             </Link>
-            <button type="submit" className="login__button">
+            <button type="submit" className="login__button" disabled={loading}>
               Sign In
             </button>
             <div>
