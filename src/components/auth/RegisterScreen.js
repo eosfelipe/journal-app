@@ -120,11 +120,11 @@ const RegisterScreen = () => {
                 Sign In
               </Link>
             </div>
-            <div className="login__social">
+            {/* <div className="login__social">
               <a href="https://google.com" className="login__social-icon">
                 <GoogleIcon style={{ width: "25px", fill: "#363636" }} />
               </a>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>
