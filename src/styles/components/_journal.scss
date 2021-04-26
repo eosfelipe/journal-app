@@ -51,6 +51,10 @@
   display: flex;
   margin-bottom: 10px;
   overflow: hidden;
+
+  &-active {
+    background-color: $grey;
+  }
 }
 .journal__entry-picture {
   height: 75px;
