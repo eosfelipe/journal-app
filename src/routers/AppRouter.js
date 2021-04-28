@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { firebase } from '../firebase/firebase-config'
 import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom'
-import BarLoader from 'react-spinners/BarLoader'
 import JournalScreen from '../components/journal/JournalScreen'
 import AuthRouter from './AuthRouter'
 import { useDispatch } from 'react-redux'
@@ -9,6 +8,7 @@ import { login } from '../actions/auth'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
 import { starLoadingNotes } from '../actions/notes'
+import LoadingScreen from '../components/LoadingScreen'
 
 const AppRouter = () => {
   const dispatch = useDispatch()
@@ -26,15 +26,16 @@ const AppRouter = () => {
       } else {
         setIsLoggedIn(false)
       }
-      setCheckin(false)
+      // setCheckin(false)
+      setTimeout(() => {
+        setCheckin(false)
+      },2000)
     })
   }, [dispatch, setCheckin, setIsLoggedIn])
 
   if (checkin) {
     return (
-      <div className='auth__loading-screen'>
-        <BarLoader color='#fff' />
-      </div>
+      <LoadingScreen />
     )
   }
 

@@ -4,7 +4,7 @@
   background: none;
   transition: all 0.5s ease;
   font-size: 1rem;
-  border-radius: 5px;
+  // border-radius: 5px;
   border: 1px solid $dark-grey;
   padding: 1rem;
   margin-left: 1rem;
@@ -18,4 +18,9 @@
 }
 .primary {
   @include buttonBG($light-grey);
+}
+.danger {
+  @include buttonBG(red);
+  width: 100%;
+  margin: 0 auto;
 }
