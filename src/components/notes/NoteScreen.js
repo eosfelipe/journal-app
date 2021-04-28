@@ -47,7 +47,7 @@ const NoteScreen = () => {
           note.url && 
             <div className='notes__image'>
               <img
-                src='https://www.viveusa.mx/sites/default/files/field/image/hawai_adobe.jpeg'
+                src={note.url}
                 alt='notes'
               />
             </div>
